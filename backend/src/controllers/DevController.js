@@ -13,36 +13,48 @@ module.exports = {
 
         return response.json(devs);
     },
+
     async store(request, response) {
         const { github_username, techs, latitude, longitude } = request.body;
 
         let dev = await Dev.findOne({ github_username });
-        if (!dev) {
-            const { name = login, avatar_url, bio } = apiResponse.data;
 
-            console.log(name, avatar_url, bio, github_username);
-
-            const techsArray = parseStringAsArray(techs);
-
-            const location = {
-                type: "Point",
-                coordinates: [longitude, latitude]
-            };
-
-            const dev = await Dev.create({
-                github_username,
-                name,
-                avatar_url,
-                bio,
-                techs: techsArray,
-                location
-            });
+        if (dev) {
+            return response.status(400).json({ message: "Dev already exists" });
         }
 
         const apiResponse = await axios.get(
-            `http://api.github.com/users/${github_username}`
+            `https://api.github.com/users/${github_username}`
         );
 
+        const { name = login, avatar_url, bio } = apiResponse.data;
+
+        const techsArray = parseStringAsArray(techs);
+
+        const location = {
+            type: "Point",
+            coordinates: [longitude, latitude]
+        };
+
+        console.log(name, avatar_url, bio, github_username, techsArray);
+
+        dev = await Dev.create({
+            github_username,
+            name,
+            avatar_url,
+            bio,
+            techs: techsArray,
+            location
+        });
+
         return response.json(dev);
+    },
+
+    async update() {
+        // atualizar name, techs, avatar_url, bio
+    },
+
+    async destroy() {
+        // deletar dev do banco de dados
     }
 };
