@@ -1,0 +1,14 @@
+/******************************************
+*  Author : Leandro Ferreira Netto 
+*  Created On : Wed Jan 15 2020
+*  File : App.css
+*******************************************/
+#app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 30px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
