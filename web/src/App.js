@@ -6,6 +6,9 @@ import "./Sidebar.css";
 import "./Main.css";
 
 function App() {
+    const [github_username, setGithubUsername] = useState("");
+    const [techs, setTechs] = useState("");
+
     const [latitude, setLatitude] = useState("");
     const [longitude, setLongitude] = useState("");
 
@@ -22,6 +25,11 @@ function App() {
             { timeout: 30000 }
         );
     }, []);
+
+    async function handleAddDev(e) {
+        e.preventDefault();
+    }
+
     return (
         <div id="app">
             <aside>
@@ -35,12 +43,20 @@ function App() {
                             name="github_username"
                             id="username_github"
                             required
+                            value={github_username}
+                            onChange={e => setGithubUsername(e.target.value)}
                         />
                     </div>
 
                     <div className="input-block">
                         <label htmlFor="techs">Tecnologias</label>
-                        <input name="techs" id="techs" required />
+                        <input
+                            name="techs"
+                            id="techs"
+                            required
+                            value={techs}
+                            onChange={e => setTechs(e.target.value)}
+                        />
                     </div>
 
                     <div className="input-group">
