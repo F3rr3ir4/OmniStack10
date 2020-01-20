@@ -1,7 +1,8 @@
 aside {
     width: 320px;
     background: #fff;
-    box-shadow: 0 0 14px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
+    background: #ffffff;
     border-radius: 2px;
     padding: 30px 20px;
 }
@@ -16,6 +17,7 @@ aside strong {
 aside form {
     margin-top: 30px;
 }
+
 aside form .input-block + .input-block {
     margin-top: 20px;
 }
@@ -28,7 +30,7 @@ aside form .input-group {
 }
 
 aside form .input-group .input-block {
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 aside form .input-block label {
@@ -37,8 +39,9 @@ aside form .input-block label {
     font-weight: bold;
     display: block;
 }
-asside form .input-block input {
-    width: 100%;
+
+aside .input-block input {
+    width: 100px;
     height: 32px;
     font-size: 14px;
     color: #666;
@@ -50,9 +53,9 @@ aside form button[type="submit"] {
     width: 100%;
     border: 0;
     margin-top: 30px;
-    background: #7d40e7;
+    background: #5266d7;
     border-radius: 2px;
-    padding: 15px 20px;
+    padding: 20px 20px;
     font-size: 16px;
     font-weight: bold;
     color: #fff;
@@ -61,5 +64,5 @@ aside form button[type="submit"] {
 }
 
 aside form button[type="submit"]:hover {
-    background: #6931ca;
+    background: #039aec;
 }
