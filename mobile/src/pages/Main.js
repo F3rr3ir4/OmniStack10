@@ -80,8 +80,7 @@ function Main({ navigation }) {
                         <Image
                             style={styles.avatar}
                             source={{
-                                uri:
-                                    "https://avatars3.githubusercontent.com/u/8379265?s=460&v=4"
+                                uri: dev.avatar_url
                             }}
                         />
                         <Callout
@@ -92,7 +91,7 @@ function Main({ navigation }) {
                             }}
                         >
                             <View style={styles.callout}>
-                                <Text style={styles.devName}>dev.name</Text>
+                                <Text style={styles.devName}>{dev.name}</Text>
                                 <Text style={styles.devBio}>{dev.devbio}</Text>
                                 <Text style={styles.devTechs}>
                                     {dev.techs.join(", ")}
@@ -115,8 +114,8 @@ function Main({ navigation }) {
                     onSubmitEditing={loadDevs}
                 />
 
-                <TouchableOpacity style={styles.loadButton} onPress={loadDevs}>
-                    <Icon name="my-location" size={20} color="#fff" />
+                <TouchableOpacity onPress={loadDevs} style={styles.loadButton}>
+                    <MaterialIcons name="my-location" size={20} color="#fff" />
                 </TouchableOpacity>
             </View>
         </>
